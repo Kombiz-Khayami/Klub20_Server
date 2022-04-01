@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
   //if(req.headers.firstname) console.log("request has header " + req.headers['firstname'])
 
   if(req.url === '/'){
-    res.write(JSON.stringify(req.headers));
+    res.write("<h1>It's working 🤗</h1>");
     res.end();
   }
 

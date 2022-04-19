@@ -15,14 +15,15 @@ const server = http.createServer((req, res) => {
   //if(req.headers.firstname) console.log("request has header " + req.headers['firstname'])
 
   if(req.url === '/'){
-    res.write("<h1>It's working 🤗</h1>");
-    res.end();
+    console.log("hello");
+    // res.write("<h1>It's working 🤗</h1>");
+    // res.end();
   }
 
  //planId= planValidation= club=0404 campaignId=
   if(req.url === '/testRequest' || req.headers.firstName){
     console.log(req.headers);
-    fetch(`https://api.abcfinancial.com/rest/${req.headers.club}/members/agreements`, 
+    /*fetch(`https://api.abcfinancial.com/rest/${req.headers.club}/members/agreements`, 
     {
         body: {
             "paymentPlanId": req.headers.paymentplanid,
@@ -130,7 +131,7 @@ const server = http.createServer((req, res) => {
             "wellnessProgramId": "340tj3g0j30gj02j"
         },
         method: 'POST'
-    })
+    })*/
   }
 })
 

@@ -4,14 +4,19 @@ import http from "http";
 const port = 8080;
 const server = http.createServer((req, res) => {
 
-  //console.log(req.headers);
-  // console.log(req.headers['firstname']);
-  // console.log(req.headers.app_id);
-  // console.log(req.get('firstname'));
-  // console.log(req.get('app_id'));
-  // console.log(req.get('app_key'));
-  // console.log(req.get('paymentplanid'));
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    //"Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+    "Access-Control-Max-Age": 2592000, // 30 days
+    /** add other headers as per requirement */
+  };
   
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, headers);
+    res.end();
+    return;
+  }
+
   //if(req.headers.firstname) console.log("request has header " + req.headers['firstname'])
 
   if(req.url === '/'){

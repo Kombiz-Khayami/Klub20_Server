@@ -26,7 +26,10 @@ const server = http.createServer((req, res) => {
   }
 
   if(req.url === '/testRequest' || req.headers.firstName){
+    res.writeHead(200, headers);
+    res.end("Hello World");
     console.log(req.headers);
+    return;
   }
 })
 

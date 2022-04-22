@@ -25,6 +25,12 @@ const server = http.createServer((req, res) => {
      res.end();
   }
 
+  if (["GET", "POST"].indexOf(req.method) > -1) {
+    res.writeHead(200, headers);
+    res.end("Hello World");
+    return;
+  }
+
   if(req.url === '/testRequest' || req.headers.firstName){
     res.writeHead(200, headers);
     res.end("Hello World");

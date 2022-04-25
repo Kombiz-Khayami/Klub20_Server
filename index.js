@@ -19,6 +19,8 @@ app.get("/", (req, res) => {
 
 app.get("/testRequest", (req, res) => {
   console.log(req.headers);
+  res.write("<p>"+req.headers+"</p>");
+  res.end();
 })
 
 // const server = http.createServer((req, res) => {

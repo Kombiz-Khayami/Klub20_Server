@@ -1,45 +1,54 @@
 import fetch from "node-fetch";
 import http from "http";
+const app = express();
 
 const port = 8080;
-const server = http.createServer((req, res) => {
 
-  const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-    "Access-Control-Max-Age": 2592000, // 30 days
-    /** add other headers as per requirement */
-  };
-  
-  if (req.method === "OPTIONS") {
-    res.writeHead(204, headers);
-    res.end();
-    return;
-  }
-
-  //if(req.headers.firstname) console.log("request has header " + req.headers['firstname'])
-
-  if(req.url === '/'){
-    console.log("hello");
-     res.write("<h1>It's working 🤗</h1>");
-     res.end();
-  }
-
-  if (["GET", "POST"].indexOf(req.method) > -1) {
-    res.writeHead(200, headers);
-    res.end("Hello World");
-    return;
-  }
-
-  if(req.url === '/testRequest' || req.headers.firstName){
-    res.writeHead(200, headers);
-    res.end("Hello World");
-    console.log(req.headers);
-    return;
-  }
+app.get("/", (req, res) => {
+  console.log("hello");
+  res.write("<h1>It's working 🤗</h1>");
+  res.end()
 })
 
-server.listen(port);
+// const server = http.createServer((req, res) => {
+
+//   const headers = {
+//     "Access-Control-Allow-Origin": "*",
+//     "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+//     "Access-Control-Max-Age": 2592000, // 30 days
+//     /** add other headers as per requirement */
+//   };
+  
+//   if (req.method === "OPTIONS") {
+//     res.writeHead(204, headers);
+//     res.end();
+//     return;
+//   }
+
+//   //if(req.headers.firstname) console.log("request has header " + req.headers['firstname'])
+
+//   if(req.url === '/'){
+//     console.log("hello");
+//      res.write("<h1>It's working 🤗</h1>");
+//      res.end();
+//   }
+
+//   if (["GET", "POST"].indexOf(req.method) > -1) {
+//     res.writeHead(200, headers);
+//     res.end("Hello World");
+//     return;
+//   }
+
+//   // if(req.url === '/testRequest' || req.headers.firstName){
+//   //   res.writeHead(200, headers);
+//   //   res.end("Hello World");
+//   //   console.log(req.headers);
+//   //   return;
+//   // }
+// })
+
+app.listen(port);
+//server.listen(port);
 console.log(`Listening on port ${port}...`);
 
     /*fetch(`https://api.abcfinancial.com/rest/${req.headers.club}/members/agreements`, 

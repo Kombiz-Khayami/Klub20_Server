@@ -3,13 +3,16 @@ import http from "http";
 import express from "express";
 
 const app = express();
-
 const port = 8080;
 
 app.get("/", (req, res) => {
   console.log("hello");
   res.write("<h1>It's working 🤗</h1>");
-  res.end()
+  res.end();
+})
+
+app.get("/testRequest", (req, res) => {
+  console.log(req.headers);
 })
 
 // const server = http.createServer((req, res) => {

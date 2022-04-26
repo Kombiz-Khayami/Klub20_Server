@@ -17,10 +17,9 @@ app.get("/", (req, res) => {
   res.end();
 })
 
-app.get("/testRequest", (req, res) => {
-  console.log(req.headers);
-  res.write("<p>"+req.headers+"</p>");
-  res.end();
+app.post("/testRequest", (req, res) => {
+  console.log(req.body);
+  res.status(201).send('Created agreement');
 })
 
 // const server = http.createServer((req, res) => {

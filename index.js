@@ -4,6 +4,8 @@ import cors from "cors";
 const app = express();
 const port = 8080;
 
+app.use(express.json());
+
 app.use(
   cors({
     origin: "*",
@@ -18,6 +20,7 @@ app.get("/", (req, res) => {
 })
 
 app.post("/testRequest", (req, res) => {
+  console.log("processing request");
   console.log(req.body);
   res.status(201).send('Created agreement');
 })

@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 app.post("/testRequest", (req, res) => {
   console.log("processing request");
   console.log(req.body);
-  fetch(`https://api.abcfinancial.com/rest/9003/members/agreements`, 
+  fetch(`https://api.abcfinancial.com/rest/6597/members/agreements`, 
     {
         headers: {
             'Content-Type': 'application/json',
@@ -33,9 +33,9 @@ app.post("/testRequest", (req, res) => {
         },
         body: JSON.stringify( 
             {
-              "paymentPlanId": "be5c379569e94e9ba415068751abf87b",
-              "planValidationHash": "1374140909",
-              "salesPersonId": "2e933fe277a74f4fa53a2c4c5d3632bf",
+              "paymentPlanId": "78156cf7931c4d8490eb18b6b99a0895", //"be5c379569e94e9ba415068751abf87b",
+              "planValidationHash": "1190735785", //"1374140909",
+              "salesPersonId": "",
               "campaignId": "f80c4f63b33e497c8c49ae264551f0a1",
               "macAddress": "string",
               "activePresale": "true",

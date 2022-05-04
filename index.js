@@ -26,7 +26,7 @@ app.post("/testRequest", (req, res) => {
   fetch(`https://api.abcfinancial.com/rest/9003/members/agreements`, 
     {
         headers: {
-            'Content': 'appliction/json',
+            'Content-Type': 'application/json',
             'Accept': 'application/json;charset=UTF-8',
             'app_id': '7ec0ad08',
             'app_key': '78b9c380421e47863614616e6439f737',

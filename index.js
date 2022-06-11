@@ -46,43 +46,43 @@ app.post("/testRequest", (req, res) => {
                 "lastName": req.body.last_name,
                 "email": req.body.email,
                 "gender": req.body.gender,
-                "homePhone": "5148901234",
+                "homePhone": req.body.phone,
                 "cellPhone": "5148901234",
                 "workPhone": "5148901234",
                 "workExt": "1234",
-                "birthday": "08/13/1994",
+                "birthday": req.body.birthDay,
                 "driversLicense": "string",
                 "employer": "string",
                 "wellnessProgramId": "340tj3g0j30gj02j",
                 "barcode": "heavensward",
                 "agreementAddressInfo": {
-                  "addressLine1": "28201 E Bonanza St",
+                  "addressLine1": req.body.addres,
                   "addressLine2": "#409",
-                  "city": "South Park",
-                  "state": "CO",
-                  "country": "US",
-                  "zipCode": "80440"
+                  "city": req.body.city,
+                  "state": req.body.province,
+                  "country": "CA",
+                  "zipCode": req.body.postalCode
                 },
                 "emergencyContact": {
-                  "ecFirstName": "Mitch",
-                  "ecLastName": "Conner",
-                  "ecPhone": "5148901234",
+                  "ecFirstName": req.body.ecFirstName,
+                  "ecLastName": req.body.ecLastName,
+                  "ecPhone": req.body.ecPhone,
                   "ecPhoneExtension": "1234"
                 }
               },
               "todayBillingInfo": {
                 "isTodayBillingSameAsDraft": "true",
-                "todayCcCvvCode": "100",
-                "todayCcBillingZip": "80440"
+                "todayCcCvvCode": req.body.cvvCode,
+                "todayCcBillingZip": req.body.billingZip
               },
               "draftBillingInfo": {
                 "draftCreditCard": {
                   "creditCardFirstName":  req.body.first_name,
                   "creditCardLastName": req.body.last_name,
-                  "creditCardType": "visa",
-                  "creditCardAccountNumber": "4263982640269299",
-                  "creditCardExpMonth": "09",
-                  "creditCardExpYear": "2024"
+                  "creditCardType": req.body.creditCardType,
+                  "creditCardAccountNumber": "", //req.body.ccNumber,
+                  "creditCardExpMonth": req.body.ccExpMonth,
+                  "creditCardExpYear": req.body.ccExpYear
                 },
                 "draftBankAccount": {
                   "draftAccountFirstName": "",

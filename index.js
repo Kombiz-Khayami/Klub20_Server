@@ -4,6 +4,26 @@ import fetch from 'node-fetch';
 
 const app = express();
 const port = 8080;
+let planValidationHash = 0;
+
+fetch(`https://api.abcfinancial.com/rest/6597/clubs/plans/78156cf7931c4d8490eb18b6b99a0895`, 
+    {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json;charset=UTF-8',
+            'app_id': '7ec0ad08',
+            'app_key': '78b9c380421e47863614616e6439f737',
+        },
+        body: JSON.stringify(),
+
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data=>{ let planValidationHash = data.paymentPlan.planValidation });
+
+
+  
+
 
 app.use(express.json());
 
@@ -33,8 +53,8 @@ app.post("/testRequest", (req, res) => {
         },
         body: JSON.stringify( 
             {
-              "paymentPlanId": "78156cf7931c4d8490eb18b6b99a0895", //"be5c379569e94e9ba415068751abf87b",
-              "planValidationHash": "1190735785", //"1374140909",
+              "paymentPlanId": "78156cf7931c4d8490eb18b6b99a0895", 
+              "planValidationHash": planValidationHash,
               "salesPersonId": "",
               "campaignId": "f80c4f63b33e497c8c49ae264551f0a1",
               "macAddress": "string",
